@@ -310,7 +310,7 @@ crypto.extractKeys = (sk) => { // eslint-disable-line
   }
 };
 
-crypto.generateMnemoic = () => bip39.generateMnemonic(160);
+crypto.generateMnemonic = () => bip39.generateMnemonic(160);
 
 crypto.checkAddress = (a) => {
   try {
@@ -1662,6 +1662,7 @@ prefix.TZ = new Uint8Array([2, 90, 121]);
 
 // Expose library
 const sotez = {
+  DEFAULT_PROVIDER,
   utility,
   crypto,
   node,

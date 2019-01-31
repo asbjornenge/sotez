@@ -1,6 +1,6 @@
 describe('main', () => {
   describe('utility', () => {
-    const main = require('../src/sotez.node');
+    const main = require('../src/sotez');
     const { utility } = main;
 
     test('mintotz', () => {
@@ -59,7 +59,7 @@ describe('main', () => {
   });
 
   describe('crypto', () => {
-    const main = require('../src/sotez.node');
+    const main = require('../src/sotez');
     const { crypto } = main;
 
     test('generateMnemonic', () => {
@@ -121,14 +121,14 @@ describe('main', () => {
     let node;
 
     beforeEach(() => {
-      main = require('../src/sotez.node');
+      main = require('../src/sotez');
       ({ node } = main);
     });
 
     test('init params', () => {
       expect(node.debugMode).toBe(false);
       expect(node.async).toBe(true);
-      expect(node.activeProvider).toBe('https://rpc.mytezoswallet.com');
+      expect(node.activeProvider).toBe(main.DEFAULT_PROVIDER);
     });
 
     test('setDebugMode', () => {
@@ -147,7 +147,7 @@ describe('main', () => {
     test('resetProvider', () => {
       node.setProvider('https://tezrpc.me/zeronet');
       node.resetProvider();
-      expect(node.activeProvider).toBe('https://rpc.mytezoswallet.com');
+      expect(node.activeProvider).toBe(main.DEFAULT_PROVIDER);
     });
 
     // describe('query', () => {
